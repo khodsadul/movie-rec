@@ -1,6 +1,7 @@
 import json
 import os
 
+import flask
 from flask import Flask, request, jsonify
 
 import util
@@ -12,8 +13,8 @@ model, mat_movies = util.pre_process()
 
 @app.route("/")
 def welcome():
-    return """Hello, Welcome to movie recommender api.\n
-    Please browse https://movie-recommender-prod.herokuapp.com/movie/wood?count=10 link to get top 10 suggested movies based on keyword wood."""
+    return flask.render_template('welcome.html')
+
 
 @app.route("/movie/<movie>")
 def recommend_movie(movie):
@@ -23,6 +24,6 @@ def recommend_movie(movie):
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 8080))
     app.run(host='0.0.0.0', port=port, debug=True)
 
