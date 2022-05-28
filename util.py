@@ -2,7 +2,6 @@ import pickle
 
 import pandas as pd
 from fuzzywuzzy import process
-import numpy as np
 
 movies = pd.read_csv('./resources/movies.csv')
 
