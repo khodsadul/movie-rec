@@ -12,8 +12,8 @@ model, mat_movies = util.pre_process()
 
 @app.route("/")
 def welcome():
-    return """Hello, Welcome to movie recommender api.
-    Please browse https://movie-recommander.herokuapp.com/movie/<movie_name>?count=<no_of_suggested_movies> link to get suggested movies."""
+    return """Hello, Welcome to movie recommender api.\n
+    Please browse https://movie-recommender-prod.herokuapp.com/movie/wood?count=10 link to get top 10 suggested movies based on keyword wood."""
 
 @app.route("/movie/<movie>")
 def recommend_movie(movie):
